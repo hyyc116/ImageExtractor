@@ -11,7 +11,7 @@ import org.apache.pdfbox.pdmodel.encryption.InvalidPasswordException;
 import org.apache.pdfbox.rendering.ImageType;
 import org.apache.pdfbox.rendering.PDFRenderer;
 /**
- * 抽取PDF中的图片
+ * 抽取PDF中的图片 
  * @author hyatttt
  * @2017年8月24日
  *
