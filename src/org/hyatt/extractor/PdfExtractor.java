@@ -10,8 +10,10 @@ import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.encryption.InvalidPasswordException;
 import org.apache.pdfbox.rendering.ImageType;
 import org.apache.pdfbox.rendering.PDFRenderer;
+
 /**
- * 抽取PDF中的图片 
+ * 抽取PDF中的图片
+ * 
  * @author hyatttt
  * @2017年8月24日
  *
@@ -25,7 +27,7 @@ public class PdfExtractor implements ImageExtractor {
 	 * @throws InvalidPasswordException
 	 */
 	@Override
-	public void extractImages(String path,String outdir) {
+	public void extractImages(String path, String outdir) {
 		try {
 			File pdffile = new File(path);
 			PDDocument document = PDDocument.load(pdffile);
@@ -33,10 +35,17 @@ public class PdfExtractor implements ImageExtractor {
 			PDFRenderer pdfRenderer = new PDFRenderer(document);
 			for (int i = 0; i < document.getPages().getCount(); i++) {
 				BufferedImage bim = pdfRenderer.renderImage(i, 1.0f, ImageType.RGB);
-				File outfile = new File(outdir+"/"+pdffile.getName().replace(".", "_")+"_"+i+".jpg");
+
+				String outname = outdir + "/" + pdffile.getName().replace(".", "_") + "_" + i + ".jpg";
+
+				File outfile = new File(outname);
+
 				ImageIO.write(bim, "jpg", outfile);
+
+				System.err.println("fige saved to:" + outname);
 			}
 			document.close();
+
 		} catch (InvalidPasswordException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
