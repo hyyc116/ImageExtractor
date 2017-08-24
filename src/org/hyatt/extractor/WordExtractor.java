@@ -14,7 +14,8 @@ import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.apache.poi.xwpf.usermodel.XWPFPictureData;
 /**
  * 抽取word文档中的图片
- * @author huangyong
+ * @author hyatttt
+ * @2017年8月24日
  *
  */
 public class WordExtractor implements ImageExtractor {

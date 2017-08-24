@@ -11,8 +11,9 @@ import org.apache.pdfbox.pdmodel.encryption.InvalidPasswordException;
 import org.apache.pdfbox.rendering.ImageType;
 import org.apache.pdfbox.rendering.PDFRenderer;
 /**
- * 抽取PDF的图片
- * @author huangyong
+ * 抽取PDF中的图片
+ * @author hyatttt
+ * @2017年8月24日
  *
  */
 public class PdfExtractor implements ImageExtractor {
