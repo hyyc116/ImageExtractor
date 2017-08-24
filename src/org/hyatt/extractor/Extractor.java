@@ -1,7 +1,11 @@
 package org.hyatt.extractor;
 
 import java.io.File;
-
+/***
+ * 程序主入口
+ * @author huangyong
+ *
+ */
 public class Extractor {
 	
 	
