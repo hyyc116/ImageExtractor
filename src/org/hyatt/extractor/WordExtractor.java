@@ -64,19 +64,22 @@ public class WordExtractor implements ImageExtractor {
 			List<XWPFPictureData> picList = document.getAllPictures();
 			for (int i = 0; i < picList.size(); i++) {
 				XWPFPictureData pic = picList.get(i);
-				System.out.println(pic.getPictureType() + File.separator + pic.suggestFileExtension() + File.separator
-						+ pic.getFileName());
+//				System.out.println(pic.getPictureType() + File.separator + pic.suggestFileExtension() + File.separator
+//						+ pic.getFileName());
 				byte[] bytev = pic.getData();
 				String outname = outdir + "/" + file.getName().replace(".", "_") + "_" + i + "."
 						+ pic.suggestFileExtension();
 				FileOutputStream fos = new FileOutputStream(outname);
+				
 				fos.write(bytev);
 				fos.close();
+				System.err.println("saved to:"+outname);
+				
 			}
 			xwpfWordExtractor.close();
 			fis.close();
 		} catch (Exception e) {
-			e.printStackTrace();
+			System.err.println("error path:"+path+",msg:"+e.getMessage().toString());
 		}
 	}
 }
